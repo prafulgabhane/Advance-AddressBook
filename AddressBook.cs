@@ -41,7 +41,7 @@ namespace CollectionAddressBook
         }
         public void printUser()
         {
-             if (People.Count == 0)
+            if (People.Count == 0)
             {
                 Console.WriteLine("Your address book is empty.");
                 Console.ReadKey();
