@@ -1,4 +1,4 @@
-﻿namespace CollectionAddressBook
+namespace CollectionAddressBook
 {
     public class Program
     {
