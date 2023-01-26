@@ -11,13 +11,13 @@ namespace CollectionAddressBook
 
             static void UserChoice()
             {
-                Console.WriteLine("Choose one of the following options: ");
-                Console.WriteLine("#1 Create new user");
-                Console.WriteLine("#2 Edit user information");
-                Console.WriteLine("#3 Delete existing user");
-                Console.WriteLine("#4 Show all users in adressBook");
-                Console.WriteLine("#5 Search by using city or state");
-                Console.WriteLine("#6 Exit");
+                Console.WriteLine("Choose any one option: ");
+                Console.WriteLine("1 Create new user");
+                Console.WriteLine("2 Edit user information");
+                Console.WriteLine("3 Delete existing user");
+                Console.WriteLine("4 Show all users in adressBook");
+                Console.WriteLine("5 Search by using city or state");
+                Console.WriteLine("6 Exit");
             }
             while (choice)
             {
@@ -52,7 +52,7 @@ namespace CollectionAddressBook
 
                 }
             }
-          static void details()
+                public static void details()
             {
                 AddressBook Adr = new AddressBook();
                 Console.WriteLine("Enter FirstName:");

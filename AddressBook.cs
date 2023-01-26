@@ -33,7 +33,7 @@ namespace CollectionAddressBook
                 }
                 else
                 {
-                    Console.WriteLine("-------Record is already exists-------");
+                    Console.WriteLine("Record is already exists");
                     Console.WriteLine("Modify the details which has duplicate name");
                     editContact();
                 }
@@ -104,9 +104,7 @@ namespace CollectionAddressBook
                                     break;
                                 case 9:
                                     return;
-
                             }
-
                         }
                     }
                 }
@@ -150,12 +148,16 @@ namespace CollectionAddressBook
                             Person forcity = People.Find(a => i.City.Equals(city));
                             if (forcity == null)
                             {
-                                Console.WriteLine("No Match found");
+                                Console.WriteLine("Match not fund");
                             }
                             else
                             {
-                                Console.WriteLine("Match found");
-                                Console.WriteLine(i);
+                                Console.WriteLine("match found\n");
+
+                                Console.WriteLine("Neme of person is {0} {1}.\n", i.FirstName, i.LastName);
+                                Console.WriteLine("Details of person\n");
+                                Console.WriteLine(" FirstName: {0},\n LastName: {1},\n Adress: {2},\n City : {3},\n State: {4},\n Zip: {5},\n PhoneNum: {6},\n Email: {7}", i.FirstName, i.LastName, i.Address, i.City, i.State, i.ZipCode, i.PhoneNum, i.EmailId);
+                                Console.WriteLine();
                                 
                             }
                         }
@@ -176,18 +178,20 @@ namespace CollectionAddressBook
                             }
                             else
                             {
-                                Console.WriteLine("match found");
+                                Console.WriteLine("match found\n");
                                
-                                    Console.WriteLine("Neme of person is {0} {1}.", i.FirstName, i.LastName);
-                                }
+                                    Console.WriteLine("Neme of person is {0} {1}.", i.FirstName, i.LastName+"\n");
+                                Console.WriteLine("Details of person\n");
+                                Console.WriteLine(" FirstName: {0},\n LastName: {1},\n Adress: {2},\n City : {3},\n State: {4},\n Zip: {5},\n PhoneNum: {6},\n Email: {7}", i.FirstName, i.LastName, i.Address, i.City, i.State, i.ZipCode, i.PhoneNum, i.EmailId);
+                                Console.WriteLine();
+                            }
                             }
                             break;
                         }
 
                     default:
                         { 
-                            Console.WriteLine("Enter valid input!");
-                           
+                            Console.WriteLine("Enter valid input!");                        
                             break;
                         }
                 }
