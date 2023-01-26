@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +8,6 @@ namespace CollectionAddressBook
 {
     public interface IAddressBookSystem
     {
-      //  void createUser();
         void printUser();
         void editContact();
         void deleteContact();
@@ -52,7 +51,6 @@ namespace CollectionAddressBook
             foreach (var person in People)
             {
                 Console.WriteLine(" FirstName: {0},\n LastName: {1},\n Adress: {2},\n City : {3},\n State: {4},\n Zip: {5},\n PhoneNum: {6},\n Email: {7}", person.FirstName, person.LastName, person.Address, person.City, person.State, person.ZipCode, person.PhoneNum, person.EmailId);
-                Console.WriteLine("________________________________");
             }
         }
         public  void editContact()
@@ -152,13 +150,11 @@ namespace CollectionAddressBook
                             Person forcity = People.Find(a => i.City.Equals(city));
                             if (forcity == null)
                             {
-                                Console.WriteLine("Match not fund");
+                                Console.WriteLine("No Match found");
                             }
                             else
                             {
-                                Console.WriteLine("match found");
-
-                                // Console.WriteLine("Neme of person is {0} {1}.", i.FirstName, i.LastName);
+                                Console.WriteLine("Match found");
                                 Console.WriteLine(i);
                                 
                             }
