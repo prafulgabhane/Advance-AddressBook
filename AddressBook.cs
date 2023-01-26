@@ -6,38 +6,38 @@ using System.Threading.Tasks;
 
 namespace CollectionAddressBook
 {
-    public class AddressBook
+    public interface IAddressBookSystem
+    {
+        void printUser();
+        void editContact();
+        void deleteContact();
+    }
+    public class AddressBook: IAddressBookSystem
     {
         public static List<Person> People = new List<Person>();
-        public void createUser()
+        public void createUser(string FirstName, string LastName, string Address, string City, string State, string ZipCode, string PhoneNum, string EmailId)
         {
-            Person person = new Person();
+            Person person = new Person(FirstName, LastName, Address, City, State, ZipCode, PhoneNum, EmailId);
 
-            Console.Write("Enter First Name: ");
-            person.FirstName = Console.ReadLine();
-
-            Console.Write("Enter Last Name: ");
-            person.LastName = Console.ReadLine();
-
-            Console.Write("Enter Address : ");
-            person.Address = Console.ReadLine();
-
-            Console.Write("Enter City : ");
-            person.City = Console.ReadLine();
-
-            Console.Write("Enter State : ");
-            person.State = Console.ReadLine();
-
-            Console.Write("Enter ZipCode: ");
-            person.ZipCode = Console.ReadLine();
-
-            Console.Write("Enter Phone Number: ");
-            person.PhoneNum = Console.ReadLine();
-
-            Console.Write("Enter EmailId: ");
-            person.EmailId = Console.ReadLine();
-
-            People.Add(person);
+            if (People.Count == 0)
+            {
+                People.Add(person);
+            }
+            else
+            {
+                Person people = People.Find(a => a.FirstName.Equals(FirstName));              
+                if (people == null)
+                {
+                    Person p = new Person(FirstName, LastName, Address, City, State, ZipCode, PhoneNum, EmailId);
+                    People.Add(p);
+                }
+                else
+                {
+                    Console.WriteLine("-------Record is already exists-------");
+                    Console.WriteLine("Modify the details which has duplicate name");
+                    editContact();
+                }
+            }
         }
         public void printUser()
         {
@@ -51,7 +51,6 @@ namespace CollectionAddressBook
             foreach (var person in People)
             {
                 Console.WriteLine(" FirstName: {0},\n LastName: {1},\n Adress: {2},\n City : {3},\n State: {4},\n Zip: {5},\n PhoneNum: {6},\n Email: {7}", person.FirstName, person.LastName, person.Address, person.City, person.State, person.ZipCode, person.PhoneNum, person.EmailId);
-                Console.WriteLine("________________________________");
             }
         }
         public  void editContact()
@@ -133,6 +132,65 @@ namespace CollectionAddressBook
                     Console.WriteLine("Contact is not present");
                 }
             }
+        }
+        public void searchperson()
+        {
+            Console.WriteLine("how you would like to search.");
+            Console.WriteLine("#1: using city\n #2: using state");
+            string inp = Console.ReadLine();
+          
+                switch (inp)
+                {
+                    case "1":
+                        {
+                            Console.WriteLine("Enter city : ");
+                            string city = Console.ReadLine();
+                        foreach (var i in People)
+                        {
+                            Person forcity = People.Find(a => i.City.Equals(city));
+                            if (forcity == null)
+                            {
+                                Console.WriteLine("No Match found");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Match found");
+                                Console.WriteLine(i);
+                                
+                            }
+                        }
+                            break;
+                        }
+
+                    case "2":
+
+                        {
+                            Console.WriteLine("Enter state : ");
+                            string state = Console.ReadLine();
+                        foreach (var i in People)
+                        {
+                            Person forstate = People.Find(a => i.State.Equals(state));
+                            if (forstate == null)
+                            {
+                                Console.WriteLine("Match not fund");
+                            }
+                            else
+                            {
+                                Console.WriteLine("match found");
+                               
+                                    Console.WriteLine("Neme of person is {0} {1}.", i.FirstName, i.LastName);
+                                }
+                            }
+                            break;
+                        }
+
+                    default:
+                        { 
+                            Console.WriteLine("Enter valid input!");
+                           
+                            break;
+                        }
+                }
         }
     }
 }
