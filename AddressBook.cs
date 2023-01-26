@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +8,6 @@ namespace CollectionAddressBook
 {
     public interface IAddressBookSystem
     {
-      //  void createUser();
         void printUser();
         void editContact();
         void deleteContact();
@@ -34,7 +33,7 @@ namespace CollectionAddressBook
                 }
                 else
                 {
-                    Console.WriteLine("-------Record is already exists-------");
+                    Console.WriteLine("Record is already exists");
                     Console.WriteLine("Modify the details which has duplicate name");
                     editContact();
                 }
@@ -52,7 +51,6 @@ namespace CollectionAddressBook
             foreach (var person in People)
             {
                 Console.WriteLine(" FirstName: {0},\n LastName: {1},\n Adress: {2},\n City : {3},\n State: {4},\n Zip: {5},\n PhoneNum: {6},\n Email: {7}", person.FirstName, person.LastName, person.Address, person.City, person.State, person.ZipCode, person.PhoneNum, person.EmailId);
-                Console.WriteLine("________________________________");
             }
         }
         public  void editContact()
@@ -106,9 +104,7 @@ namespace CollectionAddressBook
                                     break;
                                 case 9:
                                     return;
-
                             }
-
                         }
                     }
                 }
@@ -161,7 +157,6 @@ namespace CollectionAddressBook
                                 Console.WriteLine("Neme of person is {0} {1}.\n", i.FirstName, i.LastName);
                                 Console.WriteLine("Details of person\n");
                                 Console.WriteLine(" FirstName: {0},\n LastName: {1},\n Adress: {2},\n City : {3},\n State: {4},\n Zip: {5},\n PhoneNum: {6},\n Email: {7}", i.FirstName, i.LastName, i.Address, i.City, i.State, i.ZipCode, i.PhoneNum, i.EmailId);
-                                Console.WriteLine("-----------------------------------------------------------------");
                                 Console.WriteLine();
                                 
                             }
@@ -188,7 +183,6 @@ namespace CollectionAddressBook
                                     Console.WriteLine("Neme of person is {0} {1}.", i.FirstName, i.LastName+"\n");
                                 Console.WriteLine("Details of person\n");
                                 Console.WriteLine(" FirstName: {0},\n LastName: {1},\n Adress: {2},\n City : {3},\n State: {4},\n Zip: {5},\n PhoneNum: {6},\n Email: {7}", i.FirstName, i.LastName, i.Address, i.City, i.State, i.ZipCode, i.PhoneNum, i.EmailId);
-                                Console.WriteLine("-----------------------------------------------------------------");
                                 Console.WriteLine();
                             }
                             }
